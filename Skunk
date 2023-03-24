@@ -1,0 +1,35 @@
+function start() {
+    var pointsTotalGame = 0;
+    for(var i = 0; i < 5; i++){ 
+    var points = 0;
+    var pointsTotalRound = 0;
+    var sit = false;
+    while(sit != true) {
+        var sit = readBoolean("Do you want to sit? ");
+        if(sit == true) {
+            println("You scored a total of " + pointsTotalRound + " points this round!");
+            println();
+            pointsTotalGame += pointsTotalRound;
+            break;
+        }
+        if(sit == false) {  
+            var roll1 = Randomizer.nextInt(1,6);
+            var roll2= Randomizer.nextInt(1,6);
+            println("Rolled: " + roll1);
+            println("Rolled: " + roll2);
+        }
+        if(roll1 == 1 || roll2 == 1) {
+            println("You lost this round!");
+            println();
+            break;
+        } else {
+            points = roll1 + roll2;
+            pointsTotalRound += roll1 + roll2;
+            println("You scored " + points + " points!");
+        }
+}   
+}
+    println();
+    println();
+    println("Your total score for the game was " + pointsTotalGame + " points!");
+}
